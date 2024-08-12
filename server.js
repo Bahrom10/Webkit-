@@ -19,16 +19,10 @@ const validateData = (data) => {
   return data;
 };
 
-const handleCreate = async (req, res, filename) => {
+const handleCreate = async (req, res) => {
   try {
     const data = validateData(req.body);
-    const filePath = path.join(__dirname, 'data', `${filename}.json`);
-
-    // Check if file exists
-    if (!fs.existsSync(filePath)) {
-      return res.status(404).send({ message: 'File not found' });
-    }
-
+    const filePath = path.join(__dirname, 'data', 'cards.json');
     const fileData = await readFileAsync(filePath, 'utf8');
     const jsonData = JSON.parse(fileData);
     jsonData.push(data);
@@ -40,16 +34,10 @@ const handleCreate = async (req, res, filename) => {
   }
 };
 
-const handleUpdate = async (req, res, filename) => {
+const handleUpdate = async (req, res) => {
   try {
     const data = validateData(req.body); // Assuming validation needed for update as well
-    const filePath = path.join(__dirname, 'data', `${filename}.json`);
-
-    // Check if file exists
-    if (!fs.existsSync(filePath)) {
-      return res.status(404).send({ message: 'File not found' });
-    }
-
+    const filePath = path.join(__dirname, 'data', 'cards.json');
     await writeFileAsync(filePath, JSON.stringify(data, null, 2));
     res.status(200).send({ message: 'Updated successfully' });
   } catch (error) {
@@ -61,9 +49,6 @@ const handleUpdate = async (req, res, filename) => {
 app.get('/cards', async (req, res) => {
   try {
     const filePath = path.join(__dirname, 'data', 'cards.json');
-    if (!fs.existsSync(filePath)) {
-      return res.status(404).send({ message: 'File not found' });
-    }
     const fileData = await readFileAsync(filePath, 'utf8');
     const jsonData = JSON.parse(fileData);
     res.send({ cards: jsonData });
@@ -73,36 +58,9 @@ app.get('/cards', async (req, res) => {
   }
 });
 
-app.post('/cards', (req, res) => {
-  handleCreate(req, res, 'cards');
-});
+app.post('/cards', handleCreate);
 
-app.put('/cards', (req, res) => {
-  handleUpdate(req, res, 'cards');
-});
-
-app.get('/tops', async (req, res) => {
-  try {
-    const filePath = path.join(__dirname, 'data', 'tops.json');
-    if (!fs.existsSync(filePath)) {
-      return res.status(404).send({ message: 'File not found' });
-    }
-    const fileData = await readFileAsync(filePath, 'utf8');
-    const jsonData = JSON.parse(fileData);
-    res.send({ tops: jsonData });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: 'Server error' });
-  }
-});
-
-app.post('/tops', (req, res) => {
-  handleCreate(req, res, 'tops');
-});
-
-app.put('/tops', (req, res) => {
-  handleUpdate(req, res, 'tops');
-});
+app.put('/cards', handleUpdate);
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
