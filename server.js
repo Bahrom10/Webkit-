@@ -1,66 +1,60 @@
-const express = require('express');
-const cors = require('cors');
-const fs = require('fs');
-const { promisify } = require('util');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
+const dataPath = path.join(__dirname, 'data');
 
-const readFileAsync = promisify(fs.readFile);
-const writeFileAsync = promisify(fs.writeFile);
-
-const validateData = (data) => {
-  if (!data.title || !data.text || !data.image || !data.type) {
-    throw new Error('Invalid data');
-  }
-  return data;
+const readData = (file) => {
+  const rawData = fs.readFileSync(path.join(dataPath, file));
+  return JSON.parse(rawData);
 };
 
-const handleCreate = async (req, res) => {
-  try {
-    const data = validateData(req.body);
-    const filePath = path.join(__dirname, 'data', 'cards.json');
-    const fileData = await readFileAsync(filePath, 'utf8');
-    const jsonData = JSON.parse(fileData);
-    jsonData.push(data);
-    await writeFileAsync(filePath, JSON.stringify(jsonData, null, 2));
-    res.send(data);
-  } catch (error) {
-    console.error(error);
-    res.status(400).send({ message: 'Invalid request' });
-  }
+const writeData = (file, data) => {
+  fs.writeFileSync(path.join(dataPath, file), JSON.stringify(data, null, 2));
 };
 
-const handleUpdate = async (req, res) => {
-  try {
-    const data = validateData(req.body); // Assuming validation needed for update as well
-    const filePath = path.join(__dirname, 'data', 'cards.json');
-    await writeFileAsync(filePath, JSON.stringify(data, null, 2));
-    res.status(200).send({ message: 'Updated successfully' });
-  } catch (error) {
-    console.error(error);
-    res.status(400).send({ message: 'Invalid request' });
-  }
-};
-
-app.get('/cards', async (req, res) => {
-  try {
-    const filePath = path.join(__dirname, 'data', 'cards.json');
-    const fileData = await readFileAsync(filePath, 'utf8');
-    const jsonData = JSON.parse(fileData);
-    res.send({ cards: jsonData });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: 'Server error' });
-  }
+app.get('/cards', (req, res) => {
+  const cards = readData('cards.json');
+  res.send({ cards });
 });
 
-app.post('/cards', handleCreate);
+app.post('/cards', (req, res) => {
+  const { title, text, image, type } = req.body;
+  const cards = readData('cards.json');
+  cards.push({ title, text, image, type });
+  writeData('cards.json', cards);
+  res.send({ title, text, image, type });
+});
 
-app.put('/cards', handleUpdate);
+app.put('/cards', (req, res) => {
+  const cards = req.body;
+  writeData('cards.json', cards);
+  res.status(200).send({ message: 'Updated successfully' });
+});
+
+app.get('/tops', (req, res) => {
+  const tops = readData('tops.json');
+  res.send({ tops });
+});
+
+app.post('/tops', (req, res) => {
+  const { title, text, image, type } = req.body;
+  const tops = readData('tops.json');
+  tops.push({ title, text, image, type });
+  writeData('tops.json', tops);
+  res.send({ title, text, image, type });
+});
+
+app.put('/tops', (req, res) => {
+  const tops = req.body;
+  writeData('tops.json', tops);
+  res.status(200).send({ message: 'Updated successfully' });
+});
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);

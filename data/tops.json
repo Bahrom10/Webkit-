@@ -1,58 +1,58 @@
 [
-    {
-      "type": "Appartement",
-      "name": "Grand Family House",
-      "location": "Ohio St. South Gate, California",
-      "price": 350,
-      "rating": 4.8
-    },
-    {
-      "type": "House",
-      "name": "The Elements",
-      "location": "Ohio St. South Gate, California",
-      "price": 350,
-      "rating": 4.8
-    },
-    {
-      "type": "House",
-      "name": "Triraksa Village 2",
-      "location": "Tangerang, Banten",
-      "price": 350,
-      "rating": 4.8
-    },
-    {
-      "type": "Villa",
-      "name": "Nuvasa Bay",
-      "location": "Batam, Kepulauan Riau",
-      "price": 350,
-      "rating": 4.8
-    },
-    {
-      "type": "Villa",
-      "name": "Lavaya Resort",
-      "location": "Bali, Indonesia",
-      "price": 927,
-      "rating": 4.8
-    },
-    {
-      "type": "Appartement",
-      "name": "Palm Garden",
-      "location": "Pegadungan, Kaldieres",
-      "price": 162,
-      "rating": 4.8
-    },
-    {
-      "type": "House",
-      "name": "Southgate Residence",
-      "location": "Jakarta Selatan, DKI Jakarta",
-      "price": 515,
-      "rating": 4.8
-    },
-    {
-      "type": "House",
-      "name": "Pinang Residences",
-      "location": "Pesanggrahan, Jakarta Selatan",
-      "price": 512,
-      "rating": 4.8
-    }
-  ]
+  {
+    "type": "Appartement",
+    "name": "Grand Family House",
+    "location": "Ohio St. South Gate, California",
+    "price": 350,
+    "rating": 4.8
+  },
+  {
+    "type": "House",
+    "name": "The Elements",
+    "location": "Ohio St. South Gate, California",
+    "price": 350,
+    "rating": 4.8
+  },
+  {
+    "type": "House",
+    "name": "Triraksa Village 2",
+    "location": "Tangerang, Banten",
+    "price": 350,
+    "rating": 4.8
+  },
+  {
+    "type": "Villa",
+    "name": "Nuvasa Bay",
+    "location": "Batam, Kepulauan Riau",
+    "price": 350,
+    "rating": 4.8
+  },
+  {
+    "type": "Villa",
+    "name": "Lavaya Resort",
+    "location": "Bali, Indonesia",
+    "price": 927,
+    "rating": 4.8
+  },
+  {
+    "type": "Appartement",
+    "name": "Palm Garden",
+    "location": "Pegadungan, Kaldieres",
+    "price": 162,
+    "rating": 4.8
+  },
+  {
+    "type": "House",
+    "name": "Southgate Residence",
+    "location": "Jakarta Selatan, DKI Jakarta",
+    "price": 515,
+    "rating": 4.8
+  },
+  {
+    "type": "House",
+    "name": "Pinang Residences",
+    "location": "Pesanggrahan, Jakarta Selatan",
+    "price": 512,
+    "rating": 4.8
+  }
+]
