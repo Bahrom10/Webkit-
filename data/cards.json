@@ -1,6 +1,6 @@
 [
     {
-        "type": "Appartament",
+        "type": "Appartement",
         "name": "Grand Family House",
         "location": "Ohio St. South Gate, California",
         "price": 350,
@@ -35,7 +35,7 @@
         "rating": 4.8
     },
     {
-        "type": "Appartament",
+        "type": "Appartement",
         "name": "Palm Garden",
         "location": "Pogadungan, Kalidores",
         "price": 162,
@@ -63,7 +63,7 @@
         "rating": 4.8
     },
     {
-        "type": "Appartament",
+        "type": "Appartement",
         "name": "Cluster Idaman",
         "location": "Pogadungan, Kalidores",
         "price": 162,
