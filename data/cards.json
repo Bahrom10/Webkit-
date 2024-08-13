@@ -1,6 +1,6 @@
 [
     {
-        "type": "Appartement",
+        "type": "Appartament",
         "name": "Grand Family House",
         "location": "Ohio St. South Gate, California",
         "price": 350,
@@ -9,14 +9,14 @@
     {
         "type": "House",
         "name": "The Elements",
-        "location": "Ohio St. South Gate, California",
+        "location": "Ohio St South Gate, California",
         "price": 350,
         "rating": 4.8
     },
     {
         "type": "House",
         "name": "Triraksa Village 2",
-        "location": "Tangerang, Banten",
+        "location": "Tangerang, Banton",
         "price": 350,
         "rating": 4.8
     },
@@ -35,9 +35,9 @@
         "rating": 4.8
     },
     {
-        "type": "Appartement",
+        "type": "Appartament",
         "name": "Palm Garden",
-        "location": "Pegadungan, Kaldieres",
+        "location": "Pogadungan, Kalidores",
         "price": 162,
         "rating": 4.8
     },
@@ -51,6 +51,34 @@
     {
         "type": "House",
         "name": "Pinang Residences",
+        "location": "Pesanggrahan, Jakarta Selatan",
+        "price": 512,
+        "rating": 4.8
+    },
+    {
+        "type": "Villa",
+        "name": "Mandala Property",
+        "location": "Bali, Indonesia",
+        "price": 927,
+        "rating": 4.8
+    },
+    {
+        "type": "Appartament",
+        "name": "Cluster Idaman",
+        "location": "Pogadungan, Kalidores",
+        "price": 162,
+        "rating": 4.8
+    },
+    {
+        "type": "House",
+        "name": "The Patio Residence",
+        "location": "Jakarta Selatan, DKI Jakarta",
+        "price": 515,
+        "rating": 4.8
+    },
+    {
+        "type": "House",
+        "name": "Maxi Residences",
         "location": "Pesanggrahan, Jakarta Selatan",
         "price": 512,
         "rating": 4.8
