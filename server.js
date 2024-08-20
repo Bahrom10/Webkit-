@@ -37,22 +37,22 @@ app.put('/cards', (req, res) => {
   res.status(200).send({ message: 'Updated successfully' });
 });
 
-app.get('/tops', (req, res) => {
-  const tops = readData('tops.json');
-  res.send({ tops });
+app.get('/agency', (req, res) => {
+  const agency = readData('agency.json');
+  res.send({ agency });
 });
 
-app.post('/tops', (req, res) => {
+app.post('/agency', (req, res) => {
   const { title, text, image, type } = req.body;
-  const tops = readData('tops.json');
-  tops.push({ title, text, image, type });
-  writeData('tops.json', tops);
+  const agency = readData('agency.json');
+  agency.push({ title, text, image, type });
+  writeData('agency.json', agency);
   res.send({ title, text, image, type });
 });
 
-app.put('/tops', (req, res) => {
-  const tops = req.body;
-  writeData('tops.json', tops);
+app.put('/agency', (req, res) => {
+  const agency = req.body;
+  writeData('agency.json', agency);
   res.status(200).send({ message: 'Updated successfully' });
 });
 
