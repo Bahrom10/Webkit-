@@ -51,11 +51,11 @@ app.get('/agency', (req, res) => {
 });
 
 app.post('/agency', (req, res) => {
-  const { title, text, image, type } = req.body;
+  const { name, location, phone, email } = req.body;
   const agency = readData('agency.json');
-  agency.push({ title, text, image, type });
+  agency.push({ name, location, phone, email });
   writeData('agency.json', agency);
-  res.send({ title, text, image, type });
+  res.send({ name, location, phone, email });
 });
 
 app.put('/agency', (req, res) => {
