@@ -24,11 +24,82 @@ app.get('/cards', (req, res) => {
 });
 
 app.post('/cards', (req, res) => {
-  const { title, text, image, type } = req.body;
+  const { 
+    type, 
+    name, 
+    address, 
+    city, 
+    state, 
+    zip, 
+    area, 
+    country, 
+    price, 
+    rating, 
+    numberOfReviews, 
+    index, 
+    propertyId, 
+    propertyPrice, 
+    propertySize, 
+    bedroom, 
+    bathroom, 
+    garage, 
+    garageSize, 
+    yearBuilt, 
+    category, 
+    propertyStatus 
+  } = req.body;
+
   const cards = readData('cards.json');
-  cards.push({ title, text, image, type });
+  cards.push({ 
+    type, 
+    name, 
+    address, 
+    city, 
+    state, 
+    zip, 
+    area, 
+    country, 
+    price, 
+    rating, 
+    numberOfReviews, 
+    index, 
+    propertyId, 
+    propertyPrice, 
+    propertySize, 
+    bedroom, 
+    bathroom, 
+    garage, 
+    garageSize, 
+    yearBuilt, 
+    category, 
+    propertyStatus 
+  });
+
   writeData('cards.json', cards);
-  res.send({ title, text, image, type });
+  res.send({ 
+    type, 
+    name, 
+    address, 
+    city, 
+    state, 
+    zip, 
+    area, 
+    country, 
+    price, 
+    rating, 
+    numberOfReviews, 
+    index, 
+    propertyId, 
+    propertyPrice, 
+    propertySize, 
+    bedroom, 
+    bathroom, 
+    garage, 
+    garageSize, 
+    yearBuilt, 
+    category, 
+    propertyStatus 
+  });
 });
 
 app.put('/cards', (req, res) => {
@@ -36,6 +107,7 @@ app.put('/cards', (req, res) => {
   writeData('cards.json', cards);
   res.status(200).send({ message: 'Updated successfully' });
 });
+
 
 app.get('/agency', (req, res) => {
   const agency = readData('agency.json');
