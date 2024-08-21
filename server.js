@@ -34,28 +34,7 @@ app.post('/cards', (req, res) => {
 
   writeData('cards.json', cards);
   res.send({
-    type,
-    name,
-    address,
-    city,
-    state,
-    zip,
-    area,
-    country,
-    price,
-    rating,
-    numberOfReviews,
-    index,
-    propertyId,
-    propertyPrice,
-    propertySize,
-    bedroom,
-    bathroom,
-    garage,
-    garageSize,
-    yearBuilt,
-    category,
-    propertyStatus
+    type, name, address, city, state, zip, area, country, price, rating, numberOfReviews, index, propertyId, propertyPrice, propertySize, bedroom, bathroom, garage, garageSize, yearBuilt, category,   propertyStatus
   });
 });
 
