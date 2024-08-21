@@ -24,17 +24,17 @@ app.get('/cards', (req, res) => {
 });
 
 app.post('/cards', (req, res) => {
-  const { type, name, address, city, state, zip, area, country, price, rating, numberOfReviews, index, propertyId, propertyPrice, propertySize, bedroom, bathroom, garage, garageSize, yearBuilt, category,    propertyStatus
+  const { type, name, address, city, state, zip, area, country, price, rating, numberOfReviews, index, propertyId, propertyPrice, propertySize, bedroom, bathroom, garage, garageSize, yearBuilt, category, propertyStatus
   } = req.body;
 
   const cards = readData('cards.json');
   cards.push({
-    type, name, address, city, state, zip, area, country, price, rating, numberOfReviews, index, propertyId, propertyPrice, propertySize, bedroom, bathroom, garage, garageSize, yearBuilt, category,  propertyStatus
+    type, name, address, city, state, zip, area, country, price, rating, numberOfReviews, index, propertyId, propertyPrice, propertySize, bedroom, bathroom, garage, garageSize, yearBuilt, category, propertyStatus
   });
 
   writeData('cards.json', cards);
   res.send({
-    type, name, address, city, state, zip, area, country, price, rating, numberOfReviews, index, propertyId, propertyPrice, propertySize, bedroom, bathroom, garage, garageSize, yearBuilt, category,   propertyStatus
+    type, name, address, city, state, zip, area, country, price, rating, numberOfReviews, index, propertyId, propertyPrice, propertySize, bedroom, bathroom, garage, garageSize, yearBuilt, category, propertyStatus
   });
 });
 
